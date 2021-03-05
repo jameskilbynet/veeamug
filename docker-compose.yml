@@ -7,7 +7,7 @@ services:
        - db_data:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: ${X*Fz&ZMxCx+&Fk45}
+       MYSQL_ROOT_PASSWORD: X*Fz&ZMxCx+&Fk45
        MYSQL_DATABASE: wordpress
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: LWQQW6H*UmxR%gbj
