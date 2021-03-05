@@ -4,7 +4,7 @@ services:
    db:
      image: mysql:5.7
      volumes:
-       - docker/veeamug/DB:/var/lib/mysql
+       - /volume1/docker/veeamug/DB:/var/lib/mysql
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: X*Fz&ZMxCx+&Fk45
@@ -15,7 +15,7 @@ services:
    wordpress:
      image: wordpress:latest
      volumes:
-     docker/veeamug/Web:/var/www/html/wp-content
+     /volume1/docker/veeamug/Web:/var/www/html/wp-content
      ports:
        - 80
      restart: always
