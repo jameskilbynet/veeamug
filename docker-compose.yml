@@ -4,27 +4,22 @@ services:
    db:
      image: mysql:5.7
      volumes:
-       - /volume1/docker/veeamug/DB:/var/lib/mysql
+     - /volume1/docker/VeeamUG/DB:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: X*Fz&ZMxCx+&Fk45
+       MYSQL_ROOT_PASSWORD: ${MYSQL_DATABASE_PASSWORD}
        MYSQL_DATABASE: wordpress
        MYSQL_USER: wordpress
-       MYSQL_PASSWORD: LWQQW6H*UmxR%gbj
+       MYSQL_PASSWORD: wordpress
 
    wordpress:
      image: wordpress:latest
-     volumes:
-     /volume1/docker/veeamug/Web:/var/www/html/wp-content
      ports:
-       - 80
+      - 8181:80
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: wordpress
-       WORDPRESS_DB_PASSWORD: LWQQW6H*UmxR%gbj
-
-volumes:
-    docker/veeamug/DB:
-    docker/veeamug/Web:
-
+       WORDPRESS_DB_PASSWORD: wordpress
+     volumes:
+      - /volume1/docker/VeeamUG/Web:/var/www/html
